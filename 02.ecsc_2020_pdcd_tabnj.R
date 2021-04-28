@@ -6,7 +6,7 @@ Sys.setenv(http_proxy='http://staff-proxy.ul.ie:8080')
 Sys.getenv("HTTPS_PROXY")
 
 lib <- c('tidyr','plyr', 'ggplot2','viridis','dplyr',
-         'forcats','hrbrthemes','data.table','curl','readxl','foreign')
+         'forcats','hrbrthemes','data.table','curl','readxl','foreign','devtools')
 
 lapply(lib, library, character.only = T);rm(lib)
 
