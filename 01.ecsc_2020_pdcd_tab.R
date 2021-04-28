@@ -7,7 +7,8 @@ Sys.getenv("HTTPS_PROXY")
 lib <- c('tidyr','plyr', 'ggplot2','viridis','dplyr',
          'forcats','hrbrthemes','data.table','curl','readxl','foreign')
 
-lapply(lib, library, character.only = T);rm(lib)
+lapply(lib, library, character.only = T)
+rm(lib)
 
 # a. tablas de datos -------------------------------------------------------------------------------
 # * a.1. lista de micro datos ----------------------------------------------------------------------
