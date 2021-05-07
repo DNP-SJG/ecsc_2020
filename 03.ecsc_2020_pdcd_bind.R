@@ -1176,6 +1176,7 @@ sum(e4_i1aper$fexc_individual)
 #04b
 mean(e4_i1aper$satisfechos/e4_i1aper$problemas2)
 
+
 # * * * * nj generales ciclo largo -- tabla de problemas ------------------------------------------
 
 e4_i1apro <- e4_15[e4_15$nj_class2 == 1,]  %>% group_by(P1685) %>%
