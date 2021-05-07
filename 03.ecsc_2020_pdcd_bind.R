@@ -1,6 +1,5 @@
 # 0. librerías -------------------------------------------------------------------------------------
 options(scipen=999)
-
 Sys.setenv(http_proxy='http://staff-proxy.ul.ie:8080')
 Sys.getenv("HTTPS_PROXY")
 
