@@ -16,7 +16,6 @@ lapply(lib, library, character.only = T);rm(lib)
 # # # de tablas.
 
 devtools::source_url('https://raw.githubusercontent.com/luiscarlosguevara/ecsc_2020/master/01.ecsc_2020_pdcd_tab.R')
-# source('C:/Users/luisc/Desktop/1.ecsc2020/ecsc_2020/01.ecsc_2020_pdcd_tab.R')
 
 # d. Rutas de atención a problemas -----------------------------------------------------------------
 
@@ -522,12 +521,15 @@ e2_15$P1685[e2_15$P1685 == 2] <- 0
 # * * * * problemas ciclo largo -- tabla de personas -----------------------------------------------
 
 sum(e2_15$FEX_C[!duplicated(e2_15$keyper)& e2_15$nj_class2 == 1])
-e2_i1aper <- e2_15[e2_15$nj_class2 == 1,] %>% group_by(keyper) %>%
+
+e2_15$n <- 1
+e2_i1aper <- e2_15[e2_15$nj_class2 == 1,] %>% group_by(keyper,DEPMUNI) %>%
                                            summarise(
                                            fexc_individual = round(mean(FEX_C),6),
                                            impacto_medio   = mean(nj_impacto),
                                            problemas1      = mean(nj_1_count),
                                            problemas2      = mean(nj_2_count),
+                                           problemas3      = sum(n),
                                            satisfechos     = sum (P1685))
 
 table(e2_i1aper$problemas1 >= e2_i1aper$satisfechos)
@@ -553,12 +555,15 @@ sum(e2_i1apro$fexc_individual)
 sum(e2_i1apro$fexc_individual[e2_i1apro$P1685 == 1]) / sum(e2_i1apro$fexc_individual)
 
 # * * * * problemas ciclo largo + corto -- tabla de personas ---------------------------------------
-e2_i1bper <- e2_15 %>% group_by(keyper) %>%
+
+e2_15$n <- 1
+e2_i1bper <- e2_15 %>% group_by(keyper,DEPMUNI) %>%
   summarise(
     fexc_individual = round(mean(FEX_C),6),
     impacto_medio   = mean(nj_impacto),
-    problemas1       = mean(nj_1_count),
-    problemas2       = mean(nj_2_count),
+    problemas1      = mean(nj_1_count),
+    problemas2      = mean(nj_2_count),
+    problemas3      = sum(n),
     satisfechos     = sum (P1685))
 
 table(e2_i1bper$problemas1 >= e2_i1bper$satisfechos) 
@@ -592,12 +597,14 @@ e3_15 <- e3_15[e3_15$P1672 != 2,]
 e3_15$P1685[e3_15$P1685 == 2] <- 0
 
 # * * * * nj generales ciclo largo -- tabla de personas --------------------------------------------
+e3_15$n <- 1
 e3_i1aper <- e3_15[e3_15$nj_class2 == 1,] %>% group_by(keyper) %>%
   summarise(
     fexc_individual = round(mean(FEX_C),6),
     impacto_medio   = mean(nj_impacto),
     problemas1      = mean(nj_1_count),
     problemas2      = mean(nj_2_count),
+    problemas3      = sum(n),
     satisfechos     = sum (P1685))
 
 table(e3_i1aper$problemas1 >= e3_i1aper$satisfechos) 
@@ -624,12 +631,14 @@ sum(e3_i1apro$fexc_individual)
 sum(e3_i1apro$fexc_individual[e3_i1apro$P1685 == 1]) / sum(e3_i1apro$fexc_individual)
 
 # * * * * nj ciclo largo + corto -- tabla de personas ---------------------------------------
-e3_i1bper <- e3_15 %>% group_by(keyper) %>%
+e3_15$n <- 1
+e3_i1bper <- e3_15 %>% group_by(keyper,DEPMUNI) %>%
   summarise(
     fexc_individual = round(mean(FEX_C),6),
     impacto_medio   = mean(nj_impacto),
     problemas1       = mean(nj_1_count),
     problemas2       = mean(nj_2_count),
+    problemas3       = sum(n),
     satisfechos     = sum (P1685))
 
 table(e3_i1bper$problemas1 >= e3_i1bper$satisfechos) 
@@ -643,7 +652,7 @@ sum(e3_i1bper$satisfechos_min * e3_i1bper$fexc_individual) / sum(e3_i1bper$fexc_
 #03e
 sum(e3_i1bper$fexc_individual)
 #03f
-mean(e3_i1bper$satisfechos/e3_i1bper$problemas2)
+mean(e3_i1bper$satisfechos/e3_i1bper$problemas3)
 
 # * * * * nj ciclo largo + corto -- tabla de problemas --------------------------------------
 e3_i1bpro <- e3_15 %>% group_by(P1685) %>%
@@ -695,12 +704,14 @@ e4_15$P1683[is.na(e4_15$P1683) == TRUE ] <- 0
 e4_15 <- e4_15[which(e4_15$P1683 != 1),]
 
 # * * * * nj estrictas ciclo largo -- tabla de personas --------------------------------------------
-e4_i1aper <- e4_15[e4_15$nj_class2 == 1,] %>% group_by(keyper) %>%
+e4_15$n <- 1
+e4_i1aper <- e4_15[e4_15$nj_class2 == 1,] %>% group_by(keyper,DEPMUNI) %>%
   summarise(
     fexc_individual = round(mean(FEX_C),6),
     impacto_medio   = mean(nj_impacto),
     problemas1      = mean(nj_1_count),
     problemas2      = mean(nj_2_count),
+    problemas3      = sum(n),
     satisfechos     = sum (P1685))
 
 table(e4_i1aper$problemas1 >= e4_i1aper$satisfechos) 
