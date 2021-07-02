@@ -15,5 +15,4 @@ La segunda **(B)**, indaga por las diferentes razones consideradas por los indiv
 Por su parte, el archivo **Problemas, desacuerdos, conflictos o disputas (ciclo corto)**, se relaciona con los problemas caracterizados por el ciclo corto que cuentan con cuatro (4) de las cinco (5) categorías temáticas, excluyendo el componente **(B)** de razones de elección de ruta. Es importante notar que, como lo estipula el esquema de priorización, en el ciclo corto solo son estudiados aquellos problemas no priorizados de declarantes con más de dos problemas identificados (k problemas mayor a 2).
 
 ![Picture1](https://user-images.githubusercontent.com/68826782/124206788-a35c5e80-daa9-11eb-9454-307be7f535d2.png)
-
 Lo anterior implica que la unidad de observación de las tres (3) tablas del Capítulo de Problemas, Desacuerdos, Conflictos y Disputas no son homogéneas. 
