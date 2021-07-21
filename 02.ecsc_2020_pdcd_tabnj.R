@@ -15,7 +15,7 @@ lapply(lib, library, character.only = T);rm(lib)
 # # # para replicar los indicadores es necesario incluir la dirección del script de consolidación
 # # # de tablas.
 
-devtools::source_url('https://raw.githubusercontent.com/luiscarlosguevara/ecsc_2020/master/01.ecsc_2020_pdcd_tab.R')
+devtools::source_url('https://raw.githubusercontent.com/DNP-SJG/ecsc_2020/master/01.ecsc_2020_pdcd_tab.R')
 
 # d. Rutas de atención a problemas -----------------------------------------------------------------
 
